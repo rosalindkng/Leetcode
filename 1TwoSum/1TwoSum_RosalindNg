@@ -1,0 +1,8 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dict = {}
+        for i, num in enumerate(nums):
+            if (target - num) in dict:
+                return [dict[target - num], i]
+            if not num in dict:
+                dict[num] = i
