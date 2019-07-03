@@ -1,0 +1,9 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        key = {}
+        for i, number in enumerate(nums):
+            answer = target - number
+            if answer in key:
+                return[key[answer], i]
+            else:
+                key[number] = i 
