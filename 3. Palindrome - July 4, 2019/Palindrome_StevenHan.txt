@@ -1,0 +1,15 @@
+Recursion 
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        string = str(x)
+        if len(string) < 2: 
+            return True
+        if string[0] != string[-1]: 
+            return False
+        return self.isPalindrome(string[1:-1])
+
+Non Recursion 
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        string = str(x)
+	return string == string[::-1]
