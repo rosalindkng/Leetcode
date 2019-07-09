@@ -1,0 +1,19 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if s == "":
+            return True
+        parentheses=[]
+        for i in s:
+            if i == "(" or i == "{" or i == "[":
+                parentheses.append(i)
+            elif i == 0:
+                return False
+            if len(parentheses) == 0:
+                return False 
+            if i == ')' and ord(parentheses[-1]) == ord(i) - 1:
+                parentheses.pop()
+            elif(i == '}' or i == ']') and ord(parentheses[-1]) == ord(i) - 2:
+                parentheses.pop()
+            elif(i != parentheses[-1]):
+                return False
+        return False if parentheses else True
