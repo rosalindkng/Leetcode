@@ -1,0 +1,21 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        rules = {'(' : ')',
+                '{' : '}',
+                '[' : ']'}
+        
+        if not s:
+            return True
+        
+        for char in s:
+            if char in rules:
+                stack.append(char)
+            else:
+                if not len(stack) or char != rules[stack.pop()]:
+                    return False
+                
+        if len(stack):
+            return False
+        
+        return True
